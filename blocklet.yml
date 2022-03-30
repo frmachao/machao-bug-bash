@@ -1,4 +1,5 @@
 name: machao-bug-bash
+version: 0.1.2
 title: machao-bug-bash
 description: A Blocklet DAPP blocklet
 keywords:
@@ -12,9 +13,8 @@ author:
   email: frmachao@126.com
 repository:
   type: git
-  url: git+https://github.com/blocklet/create-blocklet.git
-specVersion: 1.1.1
-version: 0.1.0
+  url: 'git+https://github.com/blocklet/create-blocklet.git'
+specVersion: 1.2.4
 logo: logo.png
 files:
   - build
@@ -27,23 +27,19 @@ interfaces:
   - type: web
     name: publicUrl
     path: /
-    prefix: "*"
+    prefix: '*'
     port: BLOCKLET_PORT
     protocol: http
-community: ""
-documentation: ""
-homepage: ""
-license: ""
-charging:
-  price: 0
-  tokens: []
-  shares: []
+community: ''
+documentation: ''
+homepage: ''
+license: ''
 timeout:
   start: 60
 requirements:
-  server: ">=1.6.29"
-  os: "*"
-  cpu: "*"
+  server: '>=1.6.29'
+  os: '*'
+  cpu: '*'
 scripts:
   preStart: node api/hooks/pre-start.js
   dev: npm run start
@@ -51,8 +47,30 @@ environments:
   - name: CHAIN_HOST
     description: What's endpoint of the chain?
     required: true
-    default: https://beta.abtnetwork.io/api/
+    default: 'https://beta.abtnetwork.io/api/'
     secure: false
-capabilities: {}
-screenshots: []
+    shared: true
+  - name: ONLY_YES_OR_NO
+    description: To test preConfig. can only be yes or no
+    required: false
+    default: 'no'
+    secure: false
+    shared: true
+  - name: TEST_NAME
+    description: test config
+    required: true
+    default: test ma
+    secure: true
+    shared: false
+capabilities:
+  clusterMode: false
+  component: true
+screenshots:
+  - 0-home.png
+  - 1-detail.png
+  - 2-detail-versions.png
+  - 3-detail-download.png
 children: []
+payment:
+  price: []
+  share: []
